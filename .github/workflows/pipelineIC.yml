@@ -31,7 +31,7 @@ jobs:
         set +e
         curl -f -X POST -u '${{ secrets.SONAR_TOKEN }}:' 'https://sonarcloud.io/api/projects/create' -d 'name=${{ github.event.repository.name }}' -d 'project=${{ github.event.repository.name }}' -d 'organization=lizrag' -d 'visibility=public'
         if [ $? -ne 0 ]; then
-          echo "Proyecto ya existe en Sonarcloud"
+          echo "Proyecto ya existente en Sonarcloud"
           echo "::set-output name=proyectoExiste::1"
         else
           echo "Proyecto ${{ github.event.repository.name }} creado exitosamente en Sonarcloud"
